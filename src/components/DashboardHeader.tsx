@@ -1,18 +1,22 @@
 
 import React from 'react';
+import { UserProfileButton } from '@/components/UserProfileButton';
 
 interface DashboardHeaderProps {
   title: string;
-  description?: string;
+  description: string;
 }
 
 export function DashboardHeader({ title, description }: DashboardHeaderProps) {
   return (
-    <div className="mb-6">
-      <h1 className="text-2xl font-bold tracking-tight">{title}</h1>
-      {description && (
-        <p className="text-muted-foreground mt-1">{description}</p>
-      )}
+    <div className="flex items-center justify-between pb-6">
+      <div>
+        <h1 className="text-3xl font-bold tracking-tight">{title}</h1>
+        <p className="text-muted-foreground">{description}</p>
+      </div>
+      <div className="flex items-center space-x-4">
+        <UserProfileButton />
+      </div>
     </div>
   );
 }
